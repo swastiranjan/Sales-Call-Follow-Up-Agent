@@ -14,7 +14,7 @@ An automation flow (built on [Activepieces](https://www.activepieces.com/)) that
 
 ## Architecture
 
-![Flow diagram](flow-diagram.png)
+![Flow diagram](flow.png)
 
 The flow is router-driven at two points:
 - **Source router** — branches on whether the incoming item came from Gmail or Drive
