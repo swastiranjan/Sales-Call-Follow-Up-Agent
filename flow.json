@@ -1,0 +1,1465 @@
+﻿{
+  "name": "flow",
+  "type": "SHARED",
+  "summary": "",
+  "description": "",
+  "tags": [],
+  "blogUrl": "",
+  "metadata": {
+    "externalId": "1cuvwCYdo6sPNiTnoLseY"
+  },
+  "author": "pihu doe",
+  "categories": [],
+  "pieces": [
+    "@activepieces/piece-schedule",
+    "@activepieces/piece-store",
+    "@activepieces/piece-gmail",
+    "@activepieces/piece-google-drive",
+    "@activepieces/piece-ai",
+    "@activepieces/piece-google-sheets",
+    "@activepieces/piece-slack"
+  ],
+  "flows": [
+    {
+      "displayName": "flow",
+      "trigger": {
+        "name": "trigger",
+        "valid": true,
+        "displayName": "Every X Minutes",
+        "nextAction": {
+          "name": "step_1",
+          "skip": false,
+          "type": "PIECE",
+          "valid": true,
+          "settings": {
+            "input": {
+              "key": "drive_folder_id",
+              "store_scope": "FLOW",
+              "defaultValue": "1-eBz4bVv7YVnBBaGxVkRn0S9hhzdq2jj"
+            },
+            "pieceName": "@activepieces/piece-store",
+            "actionName": "get",
+            "sampleData": {},
+            "pieceVersion": "0.6.19",
+            "propertySettings": {
+              "key": {
+                "type": "MANUAL"
+              },
+              "store_scope": {
+                "type": "MANUAL"
+              },
+              "defaultValue": {
+                "type": "MANUAL"
+              }
+            },
+            "errorHandlingOptions": {
+              "retryOnFailure": {
+                "value": false
+              },
+              "continueOnFailure": {
+                "value": false
+              }
+            }
+          },
+          "nextAction": {
+            "name": "step_2",
+            "skip": false,
+            "type": "PIECE",
+            "valid": true,
+            "settings": {
+              "input": {
+                "key": "transcript_sender",
+                "store_scope": "FLOW",
+                "defaultValue": "swasti.ranjan21@gmail.com"
+              },
+              "pieceName": "@activepieces/piece-store",
+              "actionName": "get",
+              "sampleData": {},
+              "pieceVersion": "0.6.19",
+              "propertySettings": {
+                "key": {
+                  "type": "MANUAL"
+                },
+                "store_scope": {
+                  "type": "MANUAL"
+                },
+                "defaultValue": {
+                  "type": "MANUAL"
+                }
+              },
+              "errorHandlingOptions": {
+                "retryOnFailure": {
+                  "value": false
+                },
+                "continueOnFailure": {
+                  "value": false
+                }
+              }
+            },
+            "nextAction": {
+              "name": "step_3",
+              "skip": false,
+              "type": "PIECE",
+              "valid": true,
+              "settings": {
+                "input": {
+                  "key": "slack_channel",
+                  "store_scope": "FLOW",
+                  "defaultValue": "PASTE_SLACK_CHANNEL_HERE"
+                },
+                "pieceName": "@activepieces/piece-store",
+                "actionName": "get",
+                "sampleData": {},
+                "pieceVersion": "0.6.19",
+                "propertySettings": {
+                  "key": {
+                    "type": "MANUAL"
+                  },
+                  "store_scope": {
+                    "type": "MANUAL"
+                  },
+                  "defaultValue": {
+                    "type": "MANUAL"
+                  }
+                },
+                "errorHandlingOptions": {
+                  "retryOnFailure": {
+                    "value": false
+                  },
+                  "continueOnFailure": {
+                    "value": false
+                  }
+                }
+              },
+              "nextAction": {
+                "name": "step_4",
+                "skip": false,
+                "type": "PIECE",
+                "valid": true,
+                "settings": {
+                  "input": {
+                    "key": "company_domain",
+                    "store_scope": "FLOW",
+                    "defaultValue": "PASTE_COMPANY_DOMAIN_HERE"
+                  },
+                  "pieceName": "@activepieces/piece-store",
+                  "actionName": "get",
+                  "sampleData": {},
+                  "pieceVersion": "0.6.19",
+                  "propertySettings": {
+                    "key": {
+                      "type": "MANUAL"
+                    },
+                    "store_scope": {
+                      "type": "MANUAL"
+                    },
+                    "defaultValue": {
+                      "type": "MANUAL"
+                    }
+                  },
+                  "errorHandlingOptions": {
+                    "retryOnFailure": {
+                      "value": false
+                    },
+                    "continueOnFailure": {
+                      "value": false
+                    }
+                  }
+                },
+                "nextAction": {
+                  "name": "step_5",
+                  "skip": false,
+                  "type": "PIECE",
+                  "valid": true,
+                  "settings": {
+                    "input": {
+                      "key": "processed_calls_state",
+                      "store_scope": "FLOW",
+                      "defaultValue": "{\"fingerprints\": [], \"last_email_check\": null, \"last_drive_check\": null}"
+                    },
+                    "pieceName": "@activepieces/piece-store",
+                    "actionName": "get",
+                    "sampleData": {},
+                    "pieceVersion": "0.6.19",
+                    "propertySettings": {
+                      "key": {
+                        "type": "MANUAL"
+                      },
+                      "store_scope": {
+                        "type": "MANUAL"
+                      },
+                      "defaultValue": {
+                        "type": "MANUAL"
+                      }
+                    },
+                    "errorHandlingOptions": {
+                      "retryOnFailure": {
+                        "value": false
+                      },
+                      "continueOnFailure": {
+                        "value": false
+                      }
+                    }
+                  },
+                  "nextAction": {
+                    "name": "step_6",
+                    "skip": false,
+                    "type": "PIECE",
+                    "valid": true,
+                    "settings": {
+                      "input": {
+                        "auth": "{{connections['FmKp10ccVI2xFtXqe2Efv']}}",
+                        "from": "{{step_2['output']}} ",
+                        "label": null,
+                        "category": null,
+                        "max_results": "3",
+                        "has_attachment": false,
+                        "include_spam_trash": false
+                      },
+                      "pieceName": "@activepieces/piece-gmail",
+                      "actionName": "gmail_search_mail",
+                      "sampleData": {},
+                      "pieceVersion": "0.12.7",
+                      "propertySettings": {
+                        "to": {
+                          "type": "MANUAL"
+                        },
+                        "from": {
+                          "type": "MANUAL"
+                        },
+                        "label": {
+                          "type": "MANUAL"
+                        },
+                        "content": {
+                          "type": "MANUAL"
+                        },
+                        "subject": {
+                          "type": "MANUAL"
+                        },
+                        "category": {
+                          "type": "MANUAL"
+                        },
+                        "after_date": {
+                          "type": "MANUAL"
+                        },
+                        "before_date": {
+                          "type": "MANUAL"
+                        },
+                        "max_results": {
+                          "type": "MANUAL"
+                        },
+                        "has_attachment": {
+                          "type": "MANUAL"
+                        },
+                        "attachment_name": {
+                          "type": "MANUAL"
+                        },
+                        "include_spam_trash": {
+                          "type": "MANUAL"
+                        }
+                      },
+                      "errorHandlingOptions": {
+                        "retryOnFailure": {
+                          "value": false
+                        },
+                        "continueOnFailure": {
+                          "value": false
+                        }
+                      }
+                    },
+                    "nextAction": {
+                      "name": "step_7",
+                      "skip": false,
+                      "type": "PIECE",
+                      "valid": true,
+                      "settings": {
+                        "input": {
+                          "auth": "{{connections['rLswv7kkwhfwPVTFcd3vI']}}",
+                          "folderId": "1-eBz4bVv7YVnBBaGxVkRn0S9hhzdq2jj",
+                          "depthLevel": 1,
+                          "downloadFiles": false,
+                          "includeTrashed": false,
+                          "include_team_drives": false
+                        },
+                        "pieceName": "@activepieces/piece-google-drive",
+                        "actionName": "list-files",
+                        "sampleData": {},
+                        "pieceVersion": "0.7.10",
+                        "propertySettings": {
+                          "auth": {
+                            "type": "MANUAL"
+                          },
+                          "folderId": {
+                            "type": "MANUAL"
+                          },
+                          "depthLevel": {
+                            "type": "MANUAL"
+                          },
+                          "downloadFiles": {
+                            "type": "MANUAL"
+                          },
+                          "includeTrashed": {
+                            "type": "MANUAL"
+                          },
+                          "include_team_drives": {
+                            "type": "MANUAL"
+                          }
+                        },
+                        "errorHandlingOptions": {
+                          "retryOnFailure": {
+                            "value": false
+                          },
+                          "continueOnFailure": {
+                            "value": false
+                          }
+                        }
+                      },
+                      "nextAction": {
+                        "name": "step_8",
+                        "skip": false,
+                        "type": "CODE",
+                        "valid": true,
+                        "settings": {
+                          "input": {
+                            "driveResults": "{{step_7['output']}}",
+                            "emailResults": "{{step_6['output']['results']}}"
+                          },
+                          "sampleData": {},
+                          "sourceCode": {
+                            "code": "export const code = async (inputs) => {\n  const candidates = [];\n\n  // Gmail results\nconst emails = inputs.emailResults?.messages || [];\n  for (const email of emails) {\n    candidates.push({\n      source: \"email\",\n      sourceId: email.id,\n      raw: email\n    });\n  }\n\n  // Drive results\n  const files = inputs.driveResults?.files || [];\n  for (const file of files) {\n    candidates.push({\n      source: \"drive\",\n      sourceId: file.id,\n      raw: file\n    });\n  }\n\n  return {\n    candidates,\n    count: candidates.length\n  };\n};",
+                            "packageJson": "{}"
+                          },
+                          "errorHandlingOptions": {
+                            "retryOnFailure": {
+                              "value": false
+                            },
+                            "continueOnFailure": {
+                              "value": false
+                            }
+                          }
+                        },
+                        "nextAction": {
+                          "name": "step_9",
+                          "type": "LOOP_ON_ITEMS",
+                          "valid": true,
+                          "settings": {
+                            "items": "{{step_8['output']['candidates']}}",
+                            "sampleData": {}
+                          },
+                          "displayName": "Loop on Items",
+                          "firstLoopAction": {
+                            "name": "step_10",
+                            "skip": false,
+                            "type": "ROUTER",
+                            "valid": true,
+                            "children": [
+                              {
+                                "name": "step_11",
+                                "type": "PIECE",
+                                "valid": true,
+                                "settings": {
+                                  "input": {
+                                    "auth": "{{connections['FmKp10ccVI2xFtXqe2Efv']}}",
+                                    "message_id": "{{step_9['output']['item']['sourceId']}}"
+                                  },
+                                  "pieceName": "@activepieces/piece-gmail",
+                                  "actionName": "gmail_get_mail",
+                                  "sampleData": {},
+                                  "pieceVersion": "0.12.7",
+                                  "propertySettings": {
+                                    "message_id": {
+                                      "type": "MANUAL"
+                                    }
+                                  },
+                                  "errorHandlingOptions": {
+                                    "retryOnFailure": {
+                                      "value": false
+                                    },
+                                    "continueOnFailure": {
+                                      "value": false
+                                    }
+                                  }
+                                },
+                                "displayName": "Get Email",
+                                "lastUpdatedDate": "2026-08-08T16:15:40.848Z"
+                              },
+                              {
+                                "name": "step_12",
+                                "skip": false,
+                                "type": "PIECE",
+                                "valid": true,
+                                "settings": {
+                                  "input": {
+                                    "auth": "{{connections['rLswv7kkwhfwPVTFcd3vI']}}",
+                                    "fileId": "{{step_10['output']['item']['sourceId']}}"
+                                  },
+                                  "pieceName": "@activepieces/piece-google-drive",
+                                  "actionName": "read-file",
+                                  "sampleData": {},
+                                  "pieceVersion": "0.7.10",
+                                  "propertySettings": {
+                                    "fileId": {
+                                      "type": "MANUAL"
+                                    },
+                                    "fileName": {
+                                      "type": "MANUAL"
+                                    }
+                                  },
+                                  "errorHandlingOptions": {
+                                    "retryOnFailure": {
+                                      "value": false
+                                    },
+                                    "continueOnFailure": {
+                                      "value": false
+                                    }
+                                  }
+                                },
+                                "displayName": "Read File Content",
+                                "lastUpdatedDate": "2026-08-08T16:15:40.848Z"
+                              },
+                              null
+                            ],
+                            "settings": {
+                              "branches": [
+                                {
+                                  "branchName": "Branch 1",
+                                  "branchType": "CONDITION",
+                                  "conditions": [
+                                    [
+                                      {
+                                        "operator": "TEXT_EXACTLY_MATCHES",
+                                        "firstValue": "{{step_9['output']['item']['source']}}",
+                                        "secondValue": "email",
+                                        "caseSensitive": false
+                                      }
+                                    ]
+                                  ]
+                                },
+                                {
+                                  "branchName": "Branch 2",
+                                  "branchType": "CONDITION",
+                                  "conditions": [
+                                    [
+                                      {
+                                        "operator": "TEXT_EXACTLY_MATCHES",
+                                        "firstValue": "{{step_9['output']['item']['source']}}",
+                                        "secondValue": "drive",
+                                        "caseSensitive": false
+                                      }
+                                    ]
+                                  ]
+                                },
+                                {
+                                  "branchName": "Otherwise",
+                                  "branchType": "FALLBACK"
+                                }
+                              ],
+                              "sampleData": {},
+                              "executionType": "EXECUTE_FIRST_MATCH"
+                            },
+                            "nextAction": {
+                              "name": "step_14",
+                              "skip": false,
+                              "type": "CODE",
+                              "valid": true,
+                              "settings": {
+                                "input": {},
+                                "sampleData": {},
+                                "sourceCode": {
+                                  "code": "export const code = async (inputs) => {\n  const content = inputs.emailContent?.body \n    || inputs.emailContent?.snippet \n    || inputs.driveContent?.content \n    || inputs.driveContent \n    || \"\";\n  return { content };\n};",
+                                  "packageJson": "{}"
+                                },
+                                "errorHandlingOptions": {
+                                  "retryOnFailure": {
+                                    "value": false
+                                  },
+                                  "continueOnFailure": {
+                                    "value": false
+                                  }
+                                }
+                              },
+                              "nextAction": {
+                                "name": "step_13",
+                                "skip": false,
+                                "type": "PIECE",
+                                "valid": true,
+                                "settings": {
+                                  "input": {
+                                    "mode": "advanced",
+                                    "text": "Call Transcript - Acme Logistics / Q3 Renewal Discussion\nDate: August 3, 2026\nAttendees: Priya Sharma (priya.sharma@acmelogistics.com), Rohan Mehta (rohan.mehta@acmelogistics.com), You (you@yourcompany.com)\n[Transcript begins]\nYou: Thanks for hopping on, Priya, Rohan. Wanted to walk through the renewal terms and see where things stand on your end.\nPriya: Sure. So the team's happy with the platform overall, but honestly the pricing jump for next year is a concern. We were expecting maybe a 5-10% increase, not 25%.\nYou: That's fair feedback. Let me see what I can do on that front. Can you tell me more about the usage patterns that are driving costs on your side?\nRohan: We've actually scaled back usage in the warehouse module since Q1. Priya, didn't we drop like 30% of seats there?\nPriya: Yeah, we cut the warehouse team seats from 40 to 28 back in March.\nYou: Got it, that's useful. I'll pull the updated seat count and get you a revised quote by Friday.\nPriya: That works. One more thing — we've had two support tickets this month that took over 48 hours to get a response. That's not okay for an account our size.\nYou: I hear you, that's not the experience we want you to have. I'll escalate that internally and make sure your account gets priority routing going forward.\nRohan: Appreciate that. If the pricing and support stuff gets sorted, we're comfortable renewing for another year.\nYou: Great, I'll get that revised quote to you by Friday and follow up on the support escalation by end of week as well.\nPriya: Sounds good. Talk soon.\n[Transcript ends]",
+                                    "files": [],
+                                    "model": "anthropic/claude-haiku-4.5",
+                                    "prompt": "Extract structured information from this sales call transcript. Only record what was \nactually said — never invent or soften objections, commitments, or next steps. If the \ntranscript is empty, garbled, or clearly not a real call, set isGarbled to true. If \nevery attendee appears to be from the same company (no external client on the call), \nset isInternalOnly to true. Identify every next step that is explicitly stated or \nclearly implied, each with who owns it and when it's due.",
+                                    "schema": {
+                                      "fields": {
+                                        "type": "object",
+                                        "required": [
+                                          "callDate",
+                                          "attendees",
+                                          "notes",
+                                          "nextSteps",
+                                          "isGarbled",
+                                          "isInternalOnly"
+                                        ],
+                                        "properties": {
+                                          "notes": {
+                                            "type": "string",
+                                            "description": "What was discussed, objections raised, commitments made"
+                                          },
+                                          "callDate": {
+                                            "type": "string",
+                                            "description": "Date of the call, YYYY-MM-DD if stated"
+                                          },
+                                          "attendees": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "string"
+                                            },
+                                            "description": "Names and emails of everyone on the call"
+                                          },
+                                          "isGarbled": {
+                                            "type": "boolean"
+                                          },
+                                          "nextSteps": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "properties": {
+                                                "task": {
+                                                  "type": "string"
+                                                },
+                                                "owner": {
+                                                  "type": "string"
+                                                },
+                                                "dueDate": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "companyHint": {
+                                            "type": "string",
+                                            "description": "Client company name or domain mentioned"
+                                          },
+                                          "isInternalOnly": {
+                                            "type": "boolean"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "provider": "activepieces",
+                                    "maxOutputTokens": "1500"
+                                  },
+                                  "pieceName": "@activepieces/piece-ai",
+                                  "actionName": "extractStructuredData",
+                                  "sampleData": {},
+                                  "pieceVersion": "0.5.0",
+                                  "propertySettings": {
+                                    "mode": {
+                                      "type": "MANUAL"
+                                    },
+                                    "text": {
+                                      "type": "MANUAL"
+                                    },
+                                    "files": {
+                                      "type": "MANUAL"
+                                    },
+                                    "model": {
+                                      "type": "MANUAL"
+                                    },
+                                    "prompt": {
+                                      "type": "MANUAL"
+                                    },
+                                    "schema": {
+                                      "type": "MANUAL",
+                                      "schema": {
+                                        "fields": {
+                                          "type": "JSON",
+                                          "required": true,
+                                          "description": "Learn more about JSON Schema here: https://json-schema.org/learn/getting-started-step-by-step",
+                                          "displayName": "JSON Schema",
+                                          "defaultValue": {
+                                            "type": "object",
+                                            "required": [
+                                              "name"
+                                            ],
+                                            "properties": {
+                                              "age": {
+                                                "type": "number"
+                                              },
+                                              "name": {
+                                                "type": "string"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "provider": {
+                                      "type": "MANUAL"
+                                    },
+                                    "maxOutputTokens": {
+                                      "type": "MANUAL"
+                                    }
+                                  },
+                                  "errorHandlingOptions": {
+                                    "retryOnFailure": {
+                                      "value": false
+                                    },
+                                    "continueOnFailure": {
+                                      "value": false
+                                    }
+                                  }
+                                },
+                                "nextAction": {
+                                  "name": "step_15",
+                                  "skip": false,
+                                  "type": "CODE",
+                                  "valid": true,
+                                  "settings": {
+                                    "input": {
+                                      "extractedData": "{{step_13['output']}}",
+                                      "processedState": "{{step_5['output']}}"
+                                    },
+                                    "sampleData": {},
+                                    "sourceCode": {
+                                      "code": "export const code = async (inputs) => {\n  const data = inputs.extractedData;\n  const state = inputs.processedState || { fingerprints: [], last_email_check: null, last_drive_check: null };\n\n  // Build fingerprint: sorted attendee emails + call date\n  const emails = (data.attendees || [])\n    .map(a => {\n      const match = a.match(/[\\w.+-]+@[\\w-]+\\.[\\w.-]+/);\n      return match ? match[0].toLowerCase() : a.toLowerCase();\n    })\n    .sort()\n    .join(\",\");\n  const fingerprint = `${emails}|${data.callDate || \"\"}`;\n\n  const alreadyProcessed = (state.fingerprints || []).includes(fingerprint);\n\n  return {\n    fingerprint,\n    alreadyProcessed,\n    isGarbled: data.isGarbled || false,\n    isInternalOnly: data.isInternalOnly || false,\n    shouldSkip: alreadyProcessed || data.isGarbled || data.isInternalOnly,\n    skipReason: alreadyProcessed ? \"duplicate\" : data.isGarbled ? \"garbled\" : data.isInternalOnly ? \"internal\" : null\n  };\n};",
+                                      "packageJson": "{}"
+                                    },
+                                    "errorHandlingOptions": {
+                                      "retryOnFailure": {
+                                        "value": false
+                                      },
+                                      "continueOnFailure": {
+                                        "value": false
+                                      }
+                                    }
+                                  },
+                                  "nextAction": {
+                                    "name": "step_16",
+                                    "skip": false,
+                                    "type": "ROUTER",
+                                    "valid": true,
+                                    "children": [
+                                      {
+                                        "name": "step_30",
+                                        "skip": false,
+                                        "type": "CODE",
+                                        "valid": true,
+                                        "settings": {
+                                          "input": {
+                                            "company": "{{step_13['output']['companyHint']}}"
+                                          },
+                                          "sampleData": {},
+                                          "sourceCode": {
+                                            "code": "export const code = async (inputs) => {\n  return {\n    summary: `Skipped: transcript for ${inputs.company || \"this call\"} was garbled/unreadable and could not be processed.`\n  };\n};",
+                                            "packageJson": "{}"
+                                          },
+                                          "errorHandlingOptions": {
+                                            "retryOnFailure": {
+                                              "value": false
+                                            },
+                                            "continueOnFailure": {
+                                              "value": false
+                                            }
+                                          }
+                                        },
+                                        "displayName": "Garbled Summary",
+                                        "lastUpdatedDate": "2026-08-08T16:15:40.849Z"
+                                      },
+                                      {
+                                        "name": "step_31",
+                                        "skip": false,
+                                        "type": "CODE",
+                                        "valid": true,
+                                        "settings": {
+                                          "input": {
+                                            "reason": "{{step_15['output']['skipReason']}}",
+                                            "company": "{{step_13['output']['companyHint']}}"
+                                          },
+                                          "sampleData": {},
+                                          "sourceCode": {
+                                            "code": "export const code = async (inputs) => {\n  const reasonText = inputs.reason === \"duplicate\"\n    ? \"call already processed (duplicate)\"\n    : inputs.reason === \"internal\"\n    ? \"internal-only call, no external contact\"\n    : \"flagged for skip\";\n  return {\n    summary: `Skipped: ${inputs.company || \"this call\"} — ${reasonText}.`\n  };\n};",
+                                            "packageJson": "{}"
+                                          },
+                                          "errorHandlingOptions": {
+                                            "retryOnFailure": {
+                                              "value": false
+                                            },
+                                            "continueOnFailure": {
+                                              "value": false
+                                            }
+                                          }
+                                        },
+                                        "displayName": "Skip Summary",
+                                        "lastUpdatedDate": "2026-08-08T16:15:40.849Z"
+                                      },
+                                      {
+                                        "name": "step_18",
+                                        "skip": false,
+                                        "type": "CODE",
+                                        "valid": true,
+                                        "settings": {
+                                          "input": {
+                                            "attendees": "{{step_13['output']['attendees']}}"
+                                          },
+                                          "sampleData": {},
+                                          "sourceCode": {
+                                            "code": "export const code = async (inputs) => {\n  const attendees = inputs.attendees || [];\n  // Find first attendee that isn't \"You\" (assume that's your own team)\n  const clientAttendee = attendees.find(a => !a.toLowerCase().startsWith(\"you\"));\n  const match = clientAttendee ? clientAttendee.match(/[\\w.+-]+@[\\w-]+\\.[\\w.-]+/) : null;\n  return { contactEmail: match ? match[0] : \"\" };\n};",
+                                            "packageJson": "{}"
+                                          },
+                                          "errorHandlingOptions": {
+                                            "retryOnFailure": {
+                                              "value": false
+                                            },
+                                            "continueOnFailure": {
+                                              "value": false
+                                            }
+                                          }
+                                        },
+                                        "nextAction": {
+                                          "name": "step_17",
+                                          "skip": false,
+                                          "type": "PIECE",
+                                          "valid": true,
+                                          "settings": {
+                                            "input": {
+                                              "auth": "{{connections['UIjBHPy6oTez6syw23JUZ']}}",
+                                              "sheetId": 0,
+                                              "headerRow": 1,
+                                              "matchCase": false,
+                                              "columnName": "C",
+                                              "searchValue": "{{step_18['output']['contactEmail']}}",
+                                              "numberOfRows": 1,
+                                              "spreadsheetId": "1oBRBaxTocGuy9myToMfIzDFe4wXVe5hQJyyxExBREVA",
+                                              "useHeaderNames": false,
+                                              "includeTeamDrives": false
+                                            },
+                                            "pieceName": "@activepieces/piece-google-sheets",
+                                            "actionName": "find_rows",
+                                            "sampleData": {},
+                                            "pieceVersion": "0.16.7",
+                                            "propertySettings": {
+                                              "sheetId": {
+                                                "type": "MANUAL"
+                                              },
+                                              "headerRow": {
+                                                "type": "MANUAL"
+                                              },
+                                              "matchCase": {
+                                                "type": "MANUAL"
+                                              },
+                                              "columnName": {
+                                                "type": "MANUAL"
+                                              },
+                                              "searchValue": {
+                                                "type": "MANUAL"
+                                              },
+                                              "startingRow": {
+                                                "type": "MANUAL"
+                                              },
+                                              "numberOfRows": {
+                                                "type": "MANUAL"
+                                              },
+                                              "spreadsheetId": {
+                                                "type": "MANUAL"
+                                              },
+                                              "useHeaderNames": {
+                                                "type": "MANUAL"
+                                              },
+                                              "includeTeamDrives": {
+                                                "type": "MANUAL"
+                                              }
+                                            },
+                                            "errorHandlingOptions": {
+                                              "retryOnFailure": {
+                                                "value": false
+                                              },
+                                              "continueOnFailure": {
+                                                "value": false
+                                              }
+                                            }
+                                          },
+                                          "nextAction": {
+                                            "name": "step_19",
+                                            "skip": false,
+                                            "type": "PIECE",
+                                            "valid": true,
+                                            "settings": {
+                                              "input": {
+                                                "auth": "{{connections['UIjBHPy6oTez6syw23JUZ']}}",
+                                                "row_id": "{{step_17['output'][0]['row']}}",
+                                                "values": {
+                                                  "values": [
+                                                    "{{step_17['output'][0]['values']['A']}}",
+                                                    "{{step_17['output'][0]['values']['B']}}",
+                                                    "{{step_17['output'][0]['values']['C']}}",
+                                                    "{{step_17['output'][0]['values']['D']}}",
+                                                    "{{step_17['output'][0]['values']['E']}}"
+                                                  ]
+                                                },
+                                                "sheetId": 0,
+                                                "spreadsheetId": "1oBRBaxTocGuy9myToMfIzDFe4wXVe5hQJyyxExBREVA",
+                                                "first_row_headers": false,
+                                                "includeTeamDrives": false
+                                              },
+                                              "pieceName": "@activepieces/piece-google-sheets",
+                                              "actionName": "update_row",
+                                              "sampleData": {},
+                                              "pieceVersion": "0.16.7",
+                                              "propertySettings": {
+                                                "row_id": {
+                                                  "type": "MANUAL"
+                                                },
+                                                "values": {
+                                                  "type": "MANUAL",
+                                                  "schema": {
+                                                    "values": {
+                                                      "type": "ARRAY",
+                                                      "required": true,
+                                                      "displayName": "Row Values"
+                                                    }
+                                                  }
+                                                },
+                                                "sheetId": {
+                                                  "type": "MANUAL"
+                                                },
+                                                "spreadsheetId": {
+                                                  "type": "MANUAL"
+                                                },
+                                                "first_row_headers": {
+                                                  "type": "MANUAL"
+                                                },
+                                                "includeTeamDrives": {
+                                                  "type": "MANUAL"
+                                                }
+                                              },
+                                              "errorHandlingOptions": {
+                                                "retryOnFailure": {
+                                                  "value": false
+                                                },
+                                                "continueOnFailure": {
+                                                  "value": false
+                                                }
+                                              }
+                                            },
+                                            "nextAction": {
+                                              "name": "step_20",
+                                              "skip": false,
+                                              "type": "PIECE",
+                                              "valid": true,
+                                              "settings": {
+                                                "input": {
+                                                  "auth": "{{connections['UIjBHPy6oTez6syw23JUZ']}}",
+                                                  "values": {
+                                                    "values": [
+                                                      "{{step_17['output'][0]['values']['A']}}",
+                                                      "{{step_17['output'][0]['values']['E']}}",
+                                                      "{{step_13['output']['notes']}}"
+                                                    ]
+                                                  },
+                                                  "sheetId": 2133209160,
+                                                  "as_string": false,
+                                                  "spreadsheetId": "1oBRBaxTocGuy9myToMfIzDFe4wXVe5hQJyyxExBREVA",
+                                                  "first_row_headers": false,
+                                                  "includeTeamDrives": false
+                                                },
+                                                "pieceName": "@activepieces/piece-google-sheets",
+                                                "actionName": "insert_row",
+                                                "sampleData": {},
+                                                "pieceVersion": "0.16.7",
+                                                "propertySettings": {
+                                                  "values": {
+                                                    "type": "MANUAL",
+                                                    "schema": {
+                                                      "values": {
+                                                        "type": "ARRAY",
+                                                        "required": true,
+                                                        "displayName": "Row Values"
+                                                      }
+                                                    }
+                                                  },
+                                                  "sheetId": {
+                                                    "type": "MANUAL"
+                                                  },
+                                                  "as_string": {
+                                                    "type": "MANUAL"
+                                                  },
+                                                  "spreadsheetId": {
+                                                    "type": "MANUAL"
+                                                  },
+                                                  "first_row_headers": {
+                                                    "type": "MANUAL"
+                                                  },
+                                                  "includeTeamDrives": {
+                                                    "type": "MANUAL"
+                                                  }
+                                                },
+                                                "errorHandlingOptions": {
+                                                  "retryOnFailure": {
+                                                    "value": false
+                                                  },
+                                                  "continueOnFailure": {
+                                                    "value": false
+                                                  }
+                                                }
+                                              },
+                                              "nextAction": {
+                                                "name": "step_21",
+                                                "skip": false,
+                                                "type": "LOOP_ON_ITEMS",
+                                                "valid": true,
+                                                "settings": {
+                                                  "items": "{{step_13['output']['nextSteps']}}",
+                                                  "sampleData": {}
+                                                },
+                                                "nextAction": {
+                                                  "name": "step_24",
+                                                  "skip": false,
+                                                  "type": "CODE",
+                                                  "valid": true,
+                                                  "settings": {
+                                                    "input": {
+                                                      "currentStatus": "{{step_5['output']}}",
+                                                      "newFingerprint": "{{step_15['output']['fingerprint']}}"
+                                                    },
+                                                    "sampleData": {},
+                                                    "sourceCode": {
+                                                      "code": "export const code = async (inputs) => {\n  const state = inputs.currentState || { fingerprints: [], last_email_check: null, last_drive_check: null };\n  const fingerprints = state.fingerprints || [];\n  if (!fingerprints.includes(inputs.newFingerprint)) {\n    fingerprints.push(inputs.newFingerprint);\n  }\n  return {\n    fingerprints,\n    last_email_check: new Date().toISOString(),\n    last_drive_check: state.last_drive_check\n  };\n};",
+                                                      "packageJson": "{}"
+                                                    },
+                                                    "errorHandlingOptions": {
+                                                      "retryOnFailure": {
+                                                        "value": false
+                                                      },
+                                                      "continueOnFailure": {
+                                                        "value": false
+                                                      }
+                                                    }
+                                                  },
+                                                  "nextAction": {
+                                                    "name": "step_23",
+                                                    "skip": false,
+                                                    "type": "PIECE",
+                                                    "valid": true,
+                                                    "settings": {
+                                                      "input": {
+                                                        "key": "{{step_5['output']}}",
+                                                        "value": "{{step_24['output']}}",
+                                                        "store_scope": "FLOW"
+                                                      },
+                                                      "pieceName": "@activepieces/piece-store",
+                                                      "actionName": "put",
+                                                      "sampleData": {},
+                                                      "pieceVersion": "0.6.19",
+                                                      "propertySettings": {
+                                                        "key": {
+                                                          "type": "MANUAL"
+                                                        },
+                                                        "value": {
+                                                          "type": "MANUAL"
+                                                        },
+                                                        "store_scope": {
+                                                          "type": "MANUAL"
+                                                        }
+                                                      },
+                                                      "errorHandlingOptions": {
+                                                        "retryOnFailure": {
+                                                          "value": false
+                                                        },
+                                                        "continueOnFailure": {
+                                                          "value": false
+                                                        }
+                                                      }
+                                                    },
+                                                    "nextAction": {
+                                                      "name": "step_25",
+                                                      "skip": false,
+                                                      "type": "PIECE",
+                                                      "valid": true,
+                                                      "settings": {
+                                                        "input": {
+                                                          "mode": "advanced",
+                                                          "text": "{{step_13['output']['notes']}}",
+                                                          "files": [],
+                                                          "model": "anthropic/claude-haiku-4.5",
+                                                          "prompt": "Write a short, professional follow-up email to the client based on this call summary. \nReference the specific concerns raised and commitments made — never generic language \nlike \"thanks for your time.\" Keep it under 150 words. Do not include a subject line, \njust the email body.",
+                                                          "schema": {
+                                                            "fields": {
+                                                              "type": "object",
+                                                              "required": [
+                                                                "emailBody"
+                                                              ],
+                                                              "properties": {
+                                                                "emailBody": {
+                                                                  "type": "string",
+                                                                  "description": "The complete follow-up email text"
+                                                                }
+                                                              }
+                                                            }
+                                                          },
+                                                          "provider": "activepieces",
+                                                          "maxOutputTokens": 2000
+                                                        },
+                                                        "pieceName": "@activepieces/piece-ai",
+                                                        "actionName": "extractStructuredData",
+                                                        "sampleData": {},
+                                                        "pieceVersion": "0.5.0",
+                                                        "propertySettings": {
+                                                          "mode": {
+                                                            "type": "MANUAL"
+                                                          },
+                                                          "text": {
+                                                            "type": "MANUAL"
+                                                          },
+                                                          "files": {
+                                                            "type": "MANUAL"
+                                                          },
+                                                          "model": {
+                                                            "type": "MANUAL"
+                                                          },
+                                                          "prompt": {
+                                                            "type": "MANUAL"
+                                                          },
+                                                          "schema": {
+                                                            "type": "MANUAL",
+                                                            "schema": {
+                                                              "fields": {
+                                                                "type": "JSON",
+                                                                "required": true,
+                                                                "description": "Learn more about JSON Schema here: https://json-schema.org/learn/getting-started-step-by-step",
+                                                                "displayName": "JSON Schema",
+                                                                "defaultValue": {
+                                                                  "type": "object",
+                                                                  "required": [
+                                                                    "name"
+                                                                  ],
+                                                                  "properties": {
+                                                                    "age": {
+                                                                      "type": "number"
+                                                                    },
+                                                                    "name": {
+                                                                      "type": "string"
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          },
+                                                          "provider": {
+                                                            "type": "MANUAL"
+                                                          },
+                                                          "maxOutputTokens": {
+                                                            "type": "MANUAL"
+                                                          }
+                                                        },
+                                                        "errorHandlingOptions": {
+                                                          "retryOnFailure": {
+                                                            "value": false
+                                                          },
+                                                          "continueOnFailure": {
+                                                            "value": false
+                                                          }
+                                                        }
+                                                      },
+                                                      "nextAction": {
+                                                        "name": "step_26",
+                                                        "skip": false,
+                                                        "type": "PIECE",
+                                                        "valid": true,
+                                                        "settings": {
+                                                          "input": {
+                                                            "auth": "{{connections['RUd12VZ4RuDhM1uHe4Ifq']}}",
+                                                            "text": "📞 Call logged: {{step_13['output']['companyHint']}}\nStage: {{step_17['output'][0]['values']['D']}}\nNotes: {{step_13['output']['notes']}}\nDraft follow-up email ready — reply \"approve\" to send.",
+                                                            "blocks": [],
+                                                            "userId": "U0BNWD4JPS8",
+                                                            "unfurlLinks": true,
+                                                            "mentionOriginFlow": false
+                                                          },
+                                                          "pieceName": "@activepieces/piece-slack",
+                                                          "actionName": "send_direct_message",
+                                                          "sampleData": {},
+                                                          "pieceVersion": "0.17.8",
+                                                          "propertySettings": {
+                                                            "text": {
+                                                              "type": "MANUAL"
+                                                            },
+                                                            "blocks": {
+                                                              "type": "MANUAL"
+                                                            },
+                                                            "userId": {
+                                                              "type": "MANUAL"
+                                                            },
+                                                            "username": {
+                                                              "type": "MANUAL"
+                                                            },
+                                                            "iconEmoji": {
+                                                              "type": "MANUAL"
+                                                            },
+                                                            "unfurlLinks": {
+                                                              "type": "MANUAL"
+                                                            },
+                                                            "profilePicture": {
+                                                              "type": "MANUAL"
+                                                            },
+                                                            "mentionOriginFlow": {
+                                                              "type": "MANUAL"
+                                                            }
+                                                          },
+                                                          "errorHandlingOptions": {
+                                                            "retryOnFailure": {
+                                                              "value": false
+                                                            },
+                                                            "continueOnFailure": {
+                                                              "value": false
+                                                            }
+                                                          }
+                                                        },
+                                                        "nextAction": {
+                                                          "name": "step_27",
+                                                          "skip": false,
+                                                          "type": "PIECE",
+                                                          "valid": true,
+                                                          "settings": {
+                                                            "input": {
+                                                              "auth": "{{connections['RUd12VZ4RuDhM1uHe4Ifq']}}",
+                                                              "text": "Approve sending this follow-up email to Acme Logistics?\n[reference your follow-up email AI step's emailBody output here] {{step_25['output']['emailBody']}}",
+                                                              "userId": "U0BNWD4JPS8",
+                                                              "mentionOriginFlow": false
+                                                            },
+                                                            "pieceName": "@activepieces/piece-slack",
+                                                            "actionName": "request_approval_direct_message",
+                                                            "sampleData": {},
+                                                            "pieceVersion": "0.17.8",
+                                                            "propertySettings": {
+                                                              "text": {
+                                                                "type": "MANUAL"
+                                                              },
+                                                              "userId": {
+                                                                "type": "MANUAL"
+                                                              },
+                                                              "username": {
+                                                                "type": "MANUAL"
+                                                              },
+                                                              "profilePicture": {
+                                                                "type": "MANUAL"
+                                                              },
+                                                              "mentionOriginFlow": {
+                                                                "type": "MANUAL"
+                                                              }
+                                                            },
+                                                            "errorHandlingOptions": {
+                                                              "retryOnFailure": {
+                                                                "value": false
+                                                              },
+                                                              "continueOnFailure": {
+                                                                "value": false
+                                                              }
+                                                            }
+                                                          },
+                                                          "nextAction": {
+                                                            "name": "step_28",
+                                                            "skip": false,
+                                                            "type": "PIECE",
+                                                            "valid": true,
+                                                            "settings": {
+                                                              "input": {
+                                                                "cc": [],
+                                                                "bcc": [],
+                                                                "auth": "{{connections['FmKp10ccVI2xFtXqe2Efv']}}",
+                                                                "body": "{{step_25['output']['emailBody']}}",
+                                                                "draft": false,
+                                                                "subject": "Following up on our call — {{step_13['output']['companyHint']}}",
+                                                                "receiver": [
+                                                                  "{{step_17['output'][0]['values']['C']}}"
+                                                                ],
+                                                                "reply_to": [],
+                                                                "body_type": "plain_text",
+                                                                "attachments": []
+                                                              },
+                                                              "pieceName": "@activepieces/piece-gmail",
+                                                              "actionName": "send_email",
+                                                              "sampleData": {},
+                                                              "pieceVersion": "0.12.10",
+                                                              "propertySettings": {
+                                                                "cc": {
+                                                                  "type": "MANUAL"
+                                                                },
+                                                                "bcc": {
+                                                                  "type": "MANUAL"
+                                                                },
+                                                                "body": {
+                                                                  "type": "MANUAL"
+                                                                },
+                                                                "from": {
+                                                                  "type": "MANUAL"
+                                                                },
+                                                                "draft": {
+                                                                  "type": "MANUAL"
+                                                                },
+                                                                "subject": {
+                                                                  "type": "MANUAL"
+                                                                },
+                                                                "receiver": {
+                                                                  "type": "MANUAL"
+                                                                },
+                                                                "reply_to": {
+                                                                  "type": "MANUAL"
+                                                                },
+                                                                "body_type": {
+                                                                  "type": "MANUAL"
+                                                                },
+                                                                "attachments": {
+                                                                  "type": "MANUAL"
+                                                                },
+                                                                "in_reply_to": {
+                                                                  "type": "MANUAL"
+                                                                },
+                                                                "sender_name": {
+                                                                  "type": "MANUAL"
+                                                                }
+                                                              },
+                                                              "errorHandlingOptions": {
+                                                                "retryOnFailure": {
+                                                                  "value": false
+                                                                },
+                                                                "continueOnFailure": {
+                                                                  "value": false
+                                                                }
+                                                              }
+                                                            },
+                                                            "nextAction": {
+                                                              "name": "step_29",
+                                                              "skip": false,
+                                                              "type": "CODE",
+                                                              "valid": true,
+                                                              "settings": {
+                                                                "input": {
+                                                                  "stage": "{{step_17['output'][0]['values']['D']}}",
+                                                                  "company": "{{step_13['output']['companyHint']}}",
+                                                                  "contactEmail": "{{step_17['output'][0]['values']['C']}}"
+                                                                },
+                                                                "sampleData": {},
+                                                                "sourceCode": {
+                                                                  "code": "export const code = async (inputs) => {\n  return {\n    summary: `Processed 1 call: ${inputs.company} moved to stage \"${inputs.stage}\". Follow-up email drafted, approved, and sent to ${inputs.contactEmail}.`\n  };\n};",
+                                                                  "packageJson": "{}"
+                                                                },
+                                                                "errorHandlingOptions": {
+                                                                  "retryOnFailure": {
+                                                                    "value": false
+                                                                  },
+                                                                  "continueOnFailure": {
+                                                                    "value": false
+                                                                  }
+                                                                }
+                                                              },
+                                                              "displayName": "Run Summary",
+                                                              "lastUpdatedDate": "2026-08-08T16:15:40.854Z"
+                                                            },
+                                                            "displayName": "Send Email",
+                                                            "lastUpdatedDate": "2026-08-08T16:15:40.853Z"
+                                                          },
+                                                          "displayName": "Request Approval from A User",
+                                                          "lastUpdatedDate": "2026-08-08T16:15:40.853Z"
+                                                        },
+                                                        "displayName": "Send Message To A User",
+                                                        "lastUpdatedDate": "2026-08-08T16:15:40.853Z"
+                                                      },
+                                                      "displayName": "Extract Structured Data",
+                                                      "lastUpdatedDate": "2026-08-08T16:15:40.852Z"
+                                                    },
+                                                    "displayName": "Put",
+                                                    "lastUpdatedDate": "2026-08-08T16:15:40.852Z"
+                                                  },
+                                                  "displayName": "Build Updated State",
+                                                  "lastUpdatedDate": "2026-08-08T16:15:40.851Z"
+                                                },
+                                                "displayName": "Loop on Items",
+                                                "firstLoopAction": {
+                                                  "name": "step_22",
+                                                  "skip": false,
+                                                  "type": "PIECE",
+                                                  "valid": true,
+                                                  "settings": {
+                                                    "input": {
+                                                      "auth": "{{connections['UIjBHPy6oTez6syw23JUZ']}}",
+                                                      "values": {
+                                                        "values": [
+                                                          "{{step_17['output'][0]['values']['A']}}",
+                                                          "{{step_21['output']['item']['task']}}",
+                                                          "{{step_21['output']['item']['owner']}}",
+                                                          "{{step_21['output']['item']['dueDate']}}"
+                                                        ]
+                                                      },
+                                                      "sheetId": 1000931613,
+                                                      "as_string": false,
+                                                      "spreadsheetId": "1oBRBaxTocGuy9myToMfIzDFe4wXVe5hQJyyxExBREVA",
+                                                      "first_row_headers": false,
+                                                      "includeTeamDrives": false
+                                                    },
+                                                    "pieceName": "@activepieces/piece-google-sheets",
+                                                    "actionName": "insert_row",
+                                                    "sampleData": {},
+                                                    "pieceVersion": "0.16.7",
+                                                    "propertySettings": {
+                                                      "values": {
+                                                        "type": "MANUAL",
+                                                        "schema": {
+                                                          "values": {
+                                                            "type": "ARRAY",
+                                                            "required": true,
+                                                            "displayName": "Row Values"
+                                                          }
+                                                        }
+                                                      },
+                                                      "sheetId": {
+                                                        "type": "MANUAL"
+                                                      },
+                                                      "as_string": {
+                                                        "type": "MANUAL"
+                                                      },
+                                                      "spreadsheetId": {
+                                                        "type": "MANUAL"
+                                                      },
+                                                      "first_row_headers": {
+                                                        "type": "MANUAL"
+                                                      },
+                                                      "includeTeamDrives": {
+                                                        "type": "MANUAL"
+                                                      }
+                                                    },
+                                                    "errorHandlingOptions": {
+                                                      "retryOnFailure": {
+                                                        "value": false
+                                                      },
+                                                      "continueOnFailure": {
+                                                        "value": false
+                                                      }
+                                                    }
+                                                  },
+                                                  "displayName": "Add Row",
+                                                  "lastUpdatedDate": "2026-08-08T16:15:40.852Z"
+                                                },
+                                                "lastUpdatedDate": "2026-08-08T16:15:40.851Z"
+                                              },
+                                              "displayName": "Add Row",
+                                              "lastUpdatedDate": "2026-08-08T16:15:40.851Z"
+                                            },
+                                            "displayName": "Update Row",
+                                            "lastUpdatedDate": "2026-08-08T16:15:40.850Z"
+                                          },
+                                          "displayName": "Find Rows",
+                                          "lastUpdatedDate": "2026-08-08T16:15:40.850Z"
+                                        },
+                                        "displayName": "Code",
+                                        "lastUpdatedDate": "2026-08-08T16:15:40.850Z"
+                                      }
+                                    ],
+                                    "settings": {
+                                      "branches": [
+                                        {
+                                          "branchName": "Branch 1",
+                                          "branchType": "CONDITION",
+                                          "conditions": [
+                                            [
+                                              {
+                                                "operator": "TEXT_EXACTLY_MATCHES",
+                                                "firstValue": "{{step_15['output']['isGarbled']}}",
+                                                "secondValue": "true",
+                                                "caseSensitive": false
+                                              }
+                                            ]
+                                          ]
+                                        },
+                                        {
+                                          "branchName": "Branch 2",
+                                          "branchType": "CONDITION",
+                                          "conditions": [
+                                            [
+                                              {
+                                                "operator": "TEXT_CONTAINS",
+                                                "firstValue": "{{step_15['output']['shouldSkip']}}",
+                                                "secondValue": "true",
+                                                "caseSensitive": false
+                                              },
+                                              {
+                                                "operator": "TEXT_CONTAINS",
+                                                "firstValue": "{{step_15['output']['isGarbled']}}",
+                                                "secondValue": "false",
+                                                "caseSensitive": false
+                                              }
+                                            ]
+                                          ]
+                                        },
+                                        {
+                                          "branchName": "Otherwise",
+                                          "branchType": "FALLBACK"
+                                        }
+                                      ],
+                                      "executionType": "EXECUTE_FIRST_MATCH"
+                                    },
+                                    "displayName": "Router",
+                                    "lastUpdatedDate": "2026-08-08T16:15:40.849Z"
+                                  },
+                                  "displayName": "Fingerprint and Dedup",
+                                  "lastUpdatedDate": "2026-08-08T16:15:40.849Z"
+                                },
+                                "displayName": "Extract Structured Data",
+                                "lastUpdatedDate": "2026-08-08T16:15:40.848Z"
+                              },
+                              "displayName": "Merge Content",
+                              "lastUpdatedDate": "2026-08-08T16:15:40.848Z"
+                            },
+                            "displayName": "Router",
+                            "lastUpdatedDate": "2026-08-08T16:15:40.848Z"
+                          },
+                          "lastUpdatedDate": "2026-08-08T16:15:40.847Z"
+                        },
+                        "displayName": "Code",
+                        "lastUpdatedDate": "2026-08-08T16:15:40.847Z"
+                      },
+                      "displayName": "List files",
+                      "lastUpdatedDate": "2026-08-08T16:15:56.948Z"
+                    },
+                    "displayName": "Find Email",
+                    "lastUpdatedDate": "2026-08-08T16:15:40.847Z"
+                  },
+                  "displayName": "Processed Calls State",
+                  "lastUpdatedDate": "2026-08-08T16:15:40.847Z"
+                },
+                "displayName": "Company Domain",
+                "lastUpdatedDate": "2026-08-08T16:15:40.847Z"
+              },
+              "displayName": "Slack Recap Channel",
+              "lastUpdatedDate": "2026-08-08T16:15:40.847Z"
+            },
+            "displayName": "Transcript Sender Email",
+            "lastUpdatedDate": "2026-08-08T16:15:40.847Z"
+          },
+          "displayName": "Transcript Drive Folder",
+          "lastUpdatedDate": "2026-08-08T16:15:40.847Z"
+        },
+        "lastUpdatedDate": "2026-08-08T16:15:40.847Z",
+        "type": "PIECE_TRIGGER",
+        "settings": {
+          "sampleData": {},
+          "propertySettings": {
+            "minutes": {
+              "type": "MANUAL"
+            }
+          },
+          "pieceName": "@activepieces/piece-schedule",
+          "pieceVersion": "0.1.21",
+          "triggerName": "every_x_minutes",
+          "input": {
+            "minutes": 5
+          }
+        }
+      },
+      "valid": true,
+      "schemaVersion": "22",
+      "notes": []
+    }
+  ],
+  "status": "PUBLISHED"
+}
